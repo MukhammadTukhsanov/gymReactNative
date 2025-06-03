@@ -1,7 +1,9 @@
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import * as Font from 'expo-font';
 import React, { useEffect, useState } from 'react';
+import CreateAccount from './pages/auth/CreateAccount';
 import LoginScreen from './pages/auth/Login';
+import SignUp from './pages/auth/SignUp';
 
 const Stack = createNativeStackNavigator();
 
@@ -21,10 +23,20 @@ export default function App() {
   }, []);
 
   return (
-    <Stack.Navigator initialRouteName='Login'>
+    <Stack.Navigator initialRouteName='SignUp'>
+      <Stack.Screen
+        name='SignUp'
+        component={SignUp}
+        options={{ statusBarHidden: true, headerShown: false }}
+      />
       <Stack.Screen
         name='Login'
         component={LoginScreen}
+        options={{ statusBarHidden: true, headerShown: false }}
+      />
+      <Stack.Screen
+        name={'Create Account'}
+        component={CreateAccount}
         options={{ statusBarHidden: true, headerShown: false }}
       />
     </Stack.Navigator>

@@ -1,12 +1,11 @@
 import { Link } from 'expo-router';
-import { useState } from 'react';
-import { Image, StyleSheet, Text, View } from 'react-native';
+import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import PrimaryButton from '../../components/button/index';
-import Input from '../../components/input';
 
-function LoginScreen({ navigation }) {
-  const [password, setPassword] = useState('');
-  const [email, setEmail] = useState('');
+function SignUp({ navigation }) {
+  const handleLogin = () => {
+    navigation?.navigate('Login');
+  };
   return (
     <View style={styles.container}>
       <Image source={require('../../../assets/images/Login/SighUp/Group 1410094012.svg')} />
@@ -21,23 +20,10 @@ function LoginScreen({ navigation }) {
 
       <View style={{ width: '100%', paddingHorizontal: 16 }}>
         <PrimaryButton
-          style={{ marginTop: 15, marginBottom: 13 }}
+          style={{ marginTop: 15 }}
           type={'outline'}
           prefixIcon={require('../../../assets/images/Login/SighUp/Group 1410094021.svg')}
           onPress={() => {}}
-        />
-        <Input
-          value={email}
-          onChangeText={setEmail}
-          keyboardType={'email-address'}
-          placeholder='Enter your email'
-        />
-        <Input
-          value={password}
-          onChangeText={setPassword}
-          isPassword={true}
-          keyboardType={'visible-password'}
-          placeholder='Password'
         />
         <PrimaryButton
           title='Signup with email'
@@ -85,9 +71,9 @@ function LoginScreen({ navigation }) {
         <Text style={{ color: '#adadad', fontSize: 14, marginTop: 20 }}>
           Already have an account?
         </Text>
-        <Link style={{ color: '#32CBBF', marginTop: 4 }} href={'/'}>
+        <TouchableOpacity style={{ color: '#32CBBF', marginTop: 4 }} onPress={handleLogin}>
           Login
-        </Link>
+        </TouchableOpacity>
       </View>
     </View>
   );
@@ -111,4 +97,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default LoginScreen;
+export default SignUp;
