@@ -66,6 +66,7 @@ const styles = StyleSheet.create({
     maxWidth: 400,
     flexDirection: 'row',
     justifyContent: 'center',
+    height: 30,
     gap: 3,
   },
   content: {
@@ -86,8 +87,7 @@ const styles = StyleSheet.create({
     borderColor: 'rgba(43, 182, 169, 0.25)',
   },
   text: {
-    fontSize: 16,
-    // fontFamily: 'OpenSans-Regular',
+    fontSize: 14,
   },
   textPrimary: {
     color: '#fff',

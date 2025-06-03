@@ -11,27 +11,30 @@ function LoginScreen({}) {
         source={require('../../../assets/images/Login/SighUp/title.svg')}
       />
       <Image
-        style={{ marginTop: 40, width: '100%' }}
+        style={{ marginTop: 40, width: '100%', maxWidth: 460 }}
         source={require('../../../assets/images/Login/SighUp/Hero Header - Green2 2.png')}
       />
-      <PrimaryButton
-        style={{ marginTop: 15 }}
-        type={'outline'}
-        prefixIcon={require('../../../assets/images/Login/SighUp/Frame 1434.svg')}
-        onPress={() => {}}
-      />
-      <PrimaryButton
-        title='Signup with email'
-        style={{ marginTop: 15 }}
-        onPress={() => {}}
-      ></PrimaryButton>
+
+      <View style={{ width: '100%', paddingHorizontal: 16 }}>
+        <PrimaryButton
+          style={{ marginTop: 15 }}
+          type={'outline'}
+          prefixIcon={require('../../../assets/images/Login/SighUp/Group 1410094021.svg')}
+          onPress={() => {}}
+        />
+        <PrimaryButton
+          title='Signup with email'
+          style={{ marginTop: 15 }}
+          onPress={() => {}}
+        ></PrimaryButton>
+      </View>
       <Text
         style={{
           color: '#adadad',
           textAlign: 'center',
           fontSize: 14,
           fontWeight: 400,
-          marginTop: 15,
+          marginTop: 28,
           lineHeight: 21,
         }}
       >
