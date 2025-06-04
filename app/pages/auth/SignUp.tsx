@@ -68,11 +68,11 @@ function SignUp({ navigation }) {
           width: 260,
         }}
       >
-        <Text style={{ color: '#adadad', fontSize: 14, marginTop: 20 }}>
+        <Text style={{ color: '#f0f0f0', fontSize: 14, marginTop: 4 }}>
           Already have an account?
         </Text>
-        <TouchableOpacity style={{ color: '#32CBBF', marginTop: 4 }} onPress={handleLogin}>
-          Login
+        <TouchableOpacity style={{ marginTop: 4 }} onPress={handleLogin}>
+          <Text style={styles.loginLink}>Login</Text>
         </TouchableOpacity>
       </View>
     </View>
@@ -94,6 +94,12 @@ const styles = StyleSheet.create({
   link: {
     color: '#009DFF',
     textDecorationLine: 'underline',
+  },
+  loginLink: {
+    color: '#2BB6A9',
+    fontSize: 14,
+    fontWeight: '500',
+    marginTop: 4,
   },
 });
 

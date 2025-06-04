@@ -13,12 +13,14 @@ import {
 import PrimaryButton from '../../components/button';
 import Input from '../../components/input';
 
-export default function CreateAccountScreen({ navigation }) {
+interface CreateAccountScreenProps {
+  navigation?: any;
+}
+
+export default function CreateAccountScreen({ navigation }: CreateAccountScreenProps) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
-  const [showPassword, setShowPassword] = useState(false);
-  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
   const handleSignup = () => {
     if (!email || !password || !confirmPassword) {
@@ -185,7 +187,7 @@ const styles = StyleSheet.create({
     marginTop: 34,
   },
   termsText: {
-    color: '#adadad',
+    color: '#fff',
     fontSize: 14,
     textAlign: 'center',
     lineHeight: 21,
@@ -212,11 +214,12 @@ const styles = StyleSheet.create({
   loginText: {
     color: '#f0f0f0',
     fontSize: 14,
-    marginBottom: 5,
+    marginBottom: 4,
   },
   loginLink: {
     color: '#2BB6A9',
     fontSize: 14,
     fontWeight: '500',
+    marginTop: 4,
   },
 });

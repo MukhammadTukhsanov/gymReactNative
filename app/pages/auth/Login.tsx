@@ -1,12 +1,22 @@
-import { Link } from 'expo-router';
 import { useState } from 'react';
-import { Image, StyleSheet, Text, View } from 'react-native';
+import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import PrimaryButton from '../../components/button/index';
 import Input from '../../components/input';
 
-function LoginScreen({ navigation }) {
+interface LoginScreenProps {
+  navigation?: any;
+}
+
+function LoginScreen({ navigation }: LoginScreenProps) {
   const [password, setPassword] = useState('');
   const [email, setEmail] = useState('');
+
+  const handleSignUp = () => {
+    navigation?.navigate('SignUp');
+  };
+  const handleForgotPassword = () => {
+    navigation?.navigate('Forgot Password');
+  };
   return (
     <View style={styles.container}>
       <Image source={require('../../../assets/images/Login/SighUp/Group 1410094012.svg')} />
@@ -41,35 +51,12 @@ function LoginScreen({ navigation }) {
         />
         <PrimaryButton
           title='Signup with email'
-          style={{ marginTop: 15 }}
           onPress={() => navigation.navigate('Create Account')}
         ></PrimaryButton>
       </View>
-      <Text
-        style={{
-          color: '#adadad',
-          textAlign: 'center',
-          fontSize: 14,
-          fontWeight: 400,
-          marginTop: 28,
-          lineHeight: 21,
-        }}
-      >
-        By signing up, you agree to our <br />{' '}
-        <Link style={styles.link} href={'/'}>
-          Terms of Service
-        </Link>{' '}
-        and{' '}
-        <Link style={styles.link} href={'/'}>
-          Privacy Policy.
-        </Link>
-      </Text>
-      <Text style={{ color: '#adadad', fontSize: 14, marginTop: 20 }}>
-        Having trouble?{' '}
-        <Link style={styles.link} href={'/'}>
-          Contact us.
-        </Link>
-      </Text>
+      <TouchableOpacity style={{ marginTop: 20 }} onPress={handleForgotPassword}>
+        <Text style={{ color: '#f0f0f0', textDecorationLine: 'underline' }}>forgot password?</Text>
+      </TouchableOpacity>
       <View
         style={{
           position: 'absolute',
@@ -82,12 +69,12 @@ function LoginScreen({ navigation }) {
           width: 260,
         }}
       >
-        <Text style={{ color: '#adadad', fontSize: 14, marginTop: 20 }}>
+        <Text style={{ color: '#f0f0f0', fontSize: 14, marginTop: 4 }}>
           Already have an account?
         </Text>
-        <Link style={{ color: '#32CBBF', marginTop: 4 }} href={'/'}>
-          Login
-        </Link>
+        <TouchableOpacity style={{ marginTop: 4 }} onPress={handleSignUp}>
+          <Text style={styles.loginLink}>Sign up</Text>
+        </TouchableOpacity>
       </View>
     </View>
   );
@@ -108,6 +95,12 @@ const styles = StyleSheet.create({
   link: {
     color: '#009DFF',
     textDecorationLine: 'underline',
+  },
+  loginLink: {
+    color: '#2BB6A9',
+    fontSize: 14,
+    fontWeight: '500',
+    marginTop: 4,
   },
 });
 
